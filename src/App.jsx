@@ -26,6 +26,20 @@ const App = () => {
 
     const [notes, setNotes] = useState(DUMMY_NOTES);
 
+    // Adding notes
+    const handleAddNote = (newNote) => {
+        const date = new Date();
+        const addToNotes = {
+            id: nanoid(),
+            text: newNote,
+            date: date.toLocaleDateString(),
+        };
+
+        const allNotes = [...notes, addToNotes];
+
+        setNotes(allNotes);
+    };
+
     // Delete Note
     const handleDeleteNote = (id) => {
         const newNotes = notes.filter((note) => note.id !== id);
@@ -61,6 +75,7 @@ const App = () => {
                     <NotesList
                         notes={notes}
                         onHandleDeleteNote={handleDeleteNote}
+                        onHandleAddNote={handleAddNote}
                     />
                 </div>
             </div>

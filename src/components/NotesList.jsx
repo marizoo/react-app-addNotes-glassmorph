@@ -2,7 +2,7 @@ import React from "react";
 import AddNotes from "./AddNotes";
 import Notes from "./Notes";
 
-const NotesList = ({ notes, onHandleDeleteNote }) => {
+const NotesList = ({ notes, onHandleDeleteNote, onHandleAddNote }) => {
     return (
         <div className="notesList">
             {notes.map((note) => (
@@ -14,7 +14,7 @@ const NotesList = ({ notes, onHandleDeleteNote }) => {
                     onHandleDeleteNote={onHandleDeleteNote}
                 />
             ))}
-            <AddNotes />
+            <AddNotes onHandleAddNote={onHandleAddNote} />
         </div>
     );
 };
